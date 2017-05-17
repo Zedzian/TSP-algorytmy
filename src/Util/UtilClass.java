@@ -2,6 +2,8 @@ package Util;
 
 import Data.Vertex;
 
+import java.util.List;
+
 /**
  * Created by m.zedzian & 94lucasm on 16-05-2017.
  */
@@ -10,14 +12,37 @@ public class UtilClass {
     }
 
     public static double calculateDistance(Vertex a, Vertex b) {
-        double xDiff = a.getX() - b.getY();
+        double xDiff = a.getX() - b.getX();
         double xSqr = Math.pow(xDiff, 2);
 
-        double yDiff = a.getX() - b.getY();
+        double yDiff = a.getY() - b.getY();
         double ySqr = Math.pow(yDiff, 2);
 
         double output = Math.sqrt(xSqr + ySqr);
 
+        //System.out.println(output);
         return output;
+    }
+
+    public static int tourCost(Vertex[] tour) {
+        int cost = 0;
+        for (int i = 0; i < tour.length - 1; i++) {
+            cost += calculateDistance(tour[i], tour[i + 1]);
+        }
+
+        cost += calculateDistance(tour[tour.length - 1], tour[0]);
+
+        return cost;
+    }
+
+    public static int tourCost(List<Vertex> tour) {
+        int cost = 0;
+        for (int i = 0; i < tour.size() - 1; i++) {
+            cost += calculateDistance(tour.get(i), tour.get(i + 1));
+        }
+
+        cost += calculateDistance(tour.get(tour.size() - 1), tour.get(0));
+
+        return cost;
     }
 }

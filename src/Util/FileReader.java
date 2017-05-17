@@ -21,6 +21,14 @@ public class FileReader {
     public FileReader() {
     }
 
+    public int getEdgesCounter() {
+        return edgesCounter;
+    }
+
+    public void setEdgesCounter(int edgesCounter) {
+        this.edgesCounter = edgesCounter;
+    }
+
     public void registerData(List<Vertex> vertices) {
         this.vertices = vertices;
     }
