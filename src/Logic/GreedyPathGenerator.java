@@ -4,6 +4,7 @@ import Data.Vertex;
 import Util.UtilClass;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Created by m.zedzian & 94lucasm on 16-05-2017.
@@ -27,7 +28,7 @@ public class GreedyPathGenerator {
                 break;
             }
         }
-
+        currentVertexIndex = new Random().nextInt(vertices.size());
         used = new boolean[vertices.size()];
         ArrayList<Vertex> newRoute = new ArrayList<Vertex>(vertices.size());
         newRoute.add(vertices.get(currentVertexIndex));
@@ -53,7 +54,7 @@ public class GreedyPathGenerator {
             newRoute.add(next);
             used[jIndex] = true;
             currentVertex = next;
-            System.out.println(newRoute.get(i - 1).getX() + " " + newRoute.get(i - 1).getY());
+            //System.out.println(newRoute.get(i - 1).getX() + " " + newRoute.get(i - 1).getY());
         }
         return newRoute;
     }

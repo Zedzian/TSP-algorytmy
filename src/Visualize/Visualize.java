@@ -4,10 +4,7 @@ import Data.Vertex;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.HashMap;
 import javax.swing.*;
-
-
 
 public class Visualize extends JFrame {
     private List<Vertex> route;

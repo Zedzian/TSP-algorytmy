@@ -24,13 +24,16 @@ public class Main {
         FileReader fileReader = new FileReader();
         fileReader.registerData(route);
         fileReader.readFile("test.txt");
-        GreedyPathGenerator greedyPathGenerator = new GreedyPathGenerator(route);
-        route = greedyPathGenerator.createPath(x, y);
-        System.out.println(UtilClass.tourCost(route));
-        TSPSolver tspSolver = new TSPSolver();
-        route = tspSolver.solve(route);
-        //System.out.println(UtilClass.tourCost(route));
 
+        GreedyPathGenerator greedyPathGenerator = new GreedyPathGenerator(route);
+        while (UtilClass.tourCost(route) >= 17500) {
+            greedyPathGenerator = new GreedyPathGenerator(route);
+            route = greedyPathGenerator.createPath(x, y);
+            System.out.println(UtilClass.tourCost(route));
+            TSPSolver tspSolver = new TSPSolver();
+            route = tspSolver.solve(route);
+            System.out.println(UtilClass.tourCost(route));
+        }
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {

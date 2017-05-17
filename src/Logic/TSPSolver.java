@@ -15,7 +15,9 @@ public class TSPSolver {
 
         KOPT kopt = new KOPT();
         solution = kopt.linear2OPT(route);
-        solution = kopt.iterate2OPTRandom(solution, 10000);
+        //solution = kopt.linear3OPT(solution);
+        //solution = kopt.iterate2OPTRandom(solution, 10000);
+        //solution = kopt.linear2OPT(solution);
         return solution;
     }
 }
