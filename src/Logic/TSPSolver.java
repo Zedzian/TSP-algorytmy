@@ -1,9 +1,6 @@
 package Logic;
 
 import Data.Vertex;
-import Util.FileReader;
-import Util.UtilClass;
-
 import java.util.List;
 
 /**
@@ -18,11 +15,7 @@ public class TSPSolver {
 
         KOPT kopt = new KOPT();
         solution = kopt.linear2OPT(route);
-        solution = kopt.iterate2OPTRandom(solution, 100000);
+        solution = kopt.iterate2OPTRandom(solution, 10000);
         return solution;
     }
-
-
-
 }
-

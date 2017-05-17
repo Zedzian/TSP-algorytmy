@@ -1,7 +1,6 @@
 package Util;
 
 import Data.Vertex;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.math.BigDecimal;
@@ -12,6 +11,7 @@ import java.util.Scanner;
 /**
  * Created by m.zedzian & 94lucasm on 16-05-2017.
  */
+
 public class FileReader {
 
     private Scanner input = null;
@@ -19,14 +19,6 @@ public class FileReader {
     private List<Vertex> vertices = new ArrayList<>();
 
     public FileReader() {
-    }
-
-    public int getEdgesCounter() {
-        return edgesCounter;
-    }
-
-    public void setEdgesCounter(int edgesCounter) {
-        this.edgesCounter = edgesCounter;
     }
 
     public void registerData(List<Vertex> vertices) {
@@ -51,12 +43,11 @@ public class FileReader {
     }
 
     private void readBody(Scanner input) {
-        String[] str = new String[2];
+        String[] str;
         for (int i = 0; i < edgesCounter; i++) {
             String line = input.nextLine();
             str = line.split("\\s");
             vertices.add(new Vertex(new BigDecimal(str[0]).doubleValue(), new BigDecimal(str[1]).doubleValue()));
         }
     }
-
 }

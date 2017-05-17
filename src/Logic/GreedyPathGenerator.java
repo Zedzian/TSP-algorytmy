@@ -2,7 +2,6 @@ package Logic;
 
 import Data.Vertex;
 import Util.UtilClass;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,11 +34,11 @@ public class GreedyPathGenerator {
         used[currentVertexIndex] = true;
         Vertex currentVertex = vertices.get(currentVertexIndex);
         Vertex next = null;
-        double distance = Double.MAX_VALUE;
-        double newDistance = Double.MAX_VALUE;
+        int distance = Integer.MAX_VALUE;
+        int newDistance = Integer.MAX_VALUE;
 
         for (int i = 1; i < vertices.size(); i++) {
-            distance = Double.MAX_VALUE;
+            distance = Integer.MAX_VALUE;
             int jIndex = 0;
             for (int j = 0; j < vertices.size(); j++) {
                 if (!used[j]) {
@@ -54,11 +53,8 @@ public class GreedyPathGenerator {
             newRoute.add(next);
             used[jIndex] = true;
             currentVertex = next;
-            //System.out.println(i + " " + newRoute.get(i - 1).toString() + " " + currentVertex.getX() + " " + currentVertex.getY() + " dystance: " + distance);
+            System.out.println(newRoute.get(i - 1).getX() + " " + newRoute.get(i - 1).getY());
         }
         return newRoute;
     }
 }
-
-
-
