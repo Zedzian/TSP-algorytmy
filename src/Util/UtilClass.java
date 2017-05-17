@@ -24,17 +24,6 @@ public class UtilClass {
         return output;
     }
 
-    public static int tourCost(Vertex[] tour) {
-        int cost = 0;
-        for (int i = 0; i < tour.length - 1; i++) {
-            cost += calculateDistance(tour[i], tour[i + 1]);
-        }
-
-        cost += calculateDistance(tour[tour.length - 1], tour[0]);
-
-        return cost;
-    }
-
     public static int tourCost(List<Vertex> tour) {
         int cost = 0;
         for (int i = 0; i < tour.size() - 1; i++) {

@@ -25,6 +25,7 @@ public class GreedyPathGenerator {
         for (int i = 0; i < vertices.size(); i++) {
             if (vertices.get(i).getX() == x && vertices.get(i).getY() == y) {
                 currentVertexIndex = i;
+                break;
             }
         }
 
@@ -53,7 +54,7 @@ public class GreedyPathGenerator {
             newRoute.add(next);
             used[jIndex] = true;
             currentVertex = next;
-            //System.out.println(i + newRoute.get(i - 1).toString() + " " + currentVertex.getX() + " " + currentVertex.getY() + " dystance: " + distance);
+            //System.out.println(i + " " + newRoute.get(i - 1).toString() + " " + currentVertex.getX() + " " + currentVertex.getY() + " dystance: " + distance);
         }
         return newRoute;
     }
