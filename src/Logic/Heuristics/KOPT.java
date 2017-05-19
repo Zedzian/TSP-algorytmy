@@ -1,9 +1,7 @@
-package Logic;
+package Logic.Heuristics;
 
 import Data.Vertex;
-//import Logic.Genetic.GeneticAlgorithm;
 import Util.UtilClass;
-
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
@@ -47,8 +45,6 @@ public class KOPT {
                     bestScore = curCost;
                 } else {
                     swap(route.get(i), route.get(j));
-                    //System.out.println(i + " " + j);
-                    //random2OPT(route,0);
                 }
 
             }
