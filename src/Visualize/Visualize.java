@@ -48,6 +48,9 @@ public class Visualize extends JFrame {
         cp.add(canvas);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.pack();
+        this.setResizable(false);
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
         this.setTitle("TSP Tour Visualized");
         this.setVisible(true);
     }
@@ -64,7 +67,7 @@ public class Visualize extends JFrame {
             g.drawImage(img, 0, 0, null);
             for (Vertex v : route) {
                 g.setColor(Color.MAGENTA);
-                g.fillOval((int) v.getX() / scaleFactorX, (int) v.getY() / scaleFactorY, 10, 10);
+                g.fillOval(((int) v.getX()-8) / scaleFactorX, ((int) v.getY() -8)/ scaleFactorY, 10, 10);
             }
             for (int i = 0; i < route.size() - 1; i++) {
                 g.setColor(Color.black);

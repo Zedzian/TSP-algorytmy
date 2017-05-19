@@ -7,7 +7,6 @@ import Logic.Random.RandomPathGenerator;
 import Util.UtilClass;
 
 import java.util.List;
-import java.util.Random;
 
 /**
  * Created by m.zedzian & 94lucasm on 10-05-2017.
@@ -15,41 +14,28 @@ import java.util.Random;
 
 public class FirstHeuristics implements Heuristics {
 
+    private int K, Pmax, index = 0, minCost, N;
+    private double x, y;
+    private Vertex S;
     private RandomPathGenerator randomPathGenerator = null;
     private KOPT kopt = null;
-    private double x, y;
-    private int index = 0;
-    private int minCost, N;
     private List<Vertex> route = null, output;
 
-    public FirstHeuristics(List<Vertex> route, double x, double y) {
+    public FirstHeuristics(List<Vertex> route, Vertex S, int K, int Pmax) {
         this.route = route;
-        this.x = x;
-        this.y = y;
+        this.S = S;
+        this.K = K;
+        this.Pmax = Pmax;
     }
 
     public List<Vertex> generateRoute() {
         output = route;
         minCost = UtilClass.tourCost(route);
-        randomPathGenerator = new RandomPathGenerator(route);
+        randomPathGenerator = new RandomPathGenerator(route, Pmax);
         kopt = new KOPT();
-        N = new Random().nextInt(50);
-        N = 4;
-        while (index != N) {
-            route = randomPathGenerator.createPath(x, y);
-            for (int i = 0; i < 15; i++) {
-                route = kopt.linear2OPT(route);
-                System.out.println(UtilClass.tourCost(route) + " " + minCost);
-            }
-            System.out.println();
-            if (UtilClass.tourCost(route) < minCost) {
-                output = route;
-                minCost = UtilClass.tourCost(route);
-            }
-            index++;
-        }
-        System.out.println(UtilClass.tourCost(route) + " " + minCost);
-        return output;
+        route = randomPathGenerator.createPath(S.getX(), S.getY());
+        route = kopt.linear2OPT(route);
+        return route;
     }
 
 

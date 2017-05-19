@@ -12,12 +12,12 @@ import java.util.List;
  * Created by m.zedzian & 94lucasm on 10-05-2017.
  */
 
-public class SecondHeuristics implements Heuristics {
+public class ThirdHeuristics implements Heuristics {
     private int K, Pmax;
     private Vertex S;
     private List<Vertex> route;
 
-    public SecondHeuristics(List<Vertex> route, Vertex S, int K, int Pmax) {
+    public ThirdHeuristics(List<Vertex> route, Vertex S, int K, int Pmax) {
         this.route = route;
         this.S = S;
         this.K = K;
@@ -31,7 +31,7 @@ public class SecondHeuristics implements Heuristics {
         route = greedyPathGenerator.createPath(S.getX(), S.getY());
         System.out.println(route.size());
         System.out.println("Tour cost after greedy algorithm: " + UtilClass.tourCost(route));
-        route = kopt.linear2OPT(route);
+        route = kopt.linear2OPTwithRandomReplace(route);
         System.out.println("Tour cost after 2OPT algorithm: " + UtilClass.tourCost(route));
         return route;
     }
