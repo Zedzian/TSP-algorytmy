@@ -33,7 +33,7 @@ public class GreedyPathGenerator {
                     break;
                 }
             }
-            currentVertexIndex = new Random().nextInt(vertices.size());
+            //currentVertexIndex = new Random().nextInt(vertices.size());
             used = new boolean[vertices.size()];
             newRoute = new ArrayList<Vertex>(vertices.size());
             newRoute.add(vertices.get(currentVertexIndex));

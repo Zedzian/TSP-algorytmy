@@ -34,13 +34,14 @@ public class RandomPathGenerator {
         ArrayList<Vertex> newRoute = new ArrayList<Vertex>(vertices.size());
         newRoute.add(vertices.get(currentVertexIndex));
         used[currentVertexIndex] = true;
-
+        System.out.println("size: " + vertices.size());
         for (int i = 1; i < vertices.size(); i++) {
             int random = new Random().nextInt(Pmax);
             while (used[random]) {
                 random = new Random().nextInt(Pmax);
             }
             newRoute.add(vertices.get(random));
+            //System.out.println(vertices.get(random));
             used[random] = true;
         }
         newRoute.add(vertices.get(currentVertexIndex));

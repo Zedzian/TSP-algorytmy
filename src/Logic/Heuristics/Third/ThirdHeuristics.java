@@ -1,4 +1,4 @@
-package Logic.Heuristics.Second;
+package Logic.Heuristics.Third;
 
 import Data.Vertex;
 import Logic.Greedy.GreedyPathGenerator;
@@ -26,6 +26,7 @@ public class ThirdHeuristics implements Heuristics {
 
     public List<Vertex> generateRoute() {
         KOPT kopt = new KOPT();
+        System.out.println("Tour before after greedy algorithm: " + UtilClass.tourCost(route));
         GreedyPathGenerator greedyPathGenerator;
         greedyPathGenerator = new GreedyPathGenerator(route, K, Pmax);
         route = greedyPathGenerator.createPath(S.getX(), S.getY());

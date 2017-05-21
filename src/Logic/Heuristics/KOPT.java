@@ -84,8 +84,8 @@ public class KOPT {
             if (new Random().nextInt(10) == 5) {
                 route = swapRandom(route);
             }
-            for (int i = 1; i < route.size() - 1; i++) {
-                for (int j = 1; j < route.size() - 1; j++) {
+            for (int i = 2; i < route.size() - 1; i++) {
+                for (int j = 2; j < route.size() - 1; j++) {
                     if (i != j) {
                         //System.out.println(i+" "+j);
                         curCost = UtilClass.calculateDistance(route, route.get(i), route.get(j));
@@ -128,6 +128,9 @@ public class KOPT {
         }
         return route;
     }
+
+
+
 
     public List<Vertex> insert(List<Vertex> route) {
 
